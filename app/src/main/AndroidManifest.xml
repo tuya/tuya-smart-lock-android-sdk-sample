@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tuya.appsdk.sample">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE"
+        android:required="false" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"
+        android:required="false" />
+
+    <application
+        android:name=".BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        tools:replace="android:allowBackup,android:supportsRtl">
+
+        <meta-data
+            android:name="THING_SMART_APPKEY"
+            android:value="" />
+        <meta-data
+            android:name="THING_SMART_SECRET"
+            android:value="" />
+
+        <!--        Main        -->
+        <activity
+            android:name=".main.MainSampleListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--        User        -->
+        <activity
+            android:name=".user.main.UserFuncActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".user.login.UserLoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".user.register.UserRegisterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".user.resetPassword.UserResetPasswordActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".site.page.SiteListActivity" />
+        <activity android:name=".site.page.CreateSiteActivity" />
+        <activity android:name=".site.page.SiteDetailActivity" />
+        <activity android:name=".site.page.LockListActivity" />
+        <activity android:name=".site.page.SetupDeviceActivity" />
+        <activity android:name=".site.page.DoorLockDetailActivity" />
+        <activity android:name=".site.page.CreateKeyActivity" />
+        <activity android:name=".site.page.EKeyListActivity" />
+        <activity android:name=".site.page.EKeyDetailActivity" />
+        <activity android:name=".site.page.CreatePasswordActivity" />
+        <activity android:name=".site.page.PasswordListActivity" />
+        <activity android:name=".site.page.PasswordDetailActivity" />
+        <activity android:name=".site.page.OperationRecordsListActivity" />
+        <activity android:name=".site.page.OpenRecordsListActivity" />
+        <activity android:name=".site.page.AlarmRecordsListActivity" />
+    </application>
+
+</manifest>

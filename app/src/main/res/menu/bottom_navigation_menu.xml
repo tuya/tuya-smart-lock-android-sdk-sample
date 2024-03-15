@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_temporary"
+        android:title="@string/periodicity" />
+    <item
+        android:id="@+id/nav_permanent"
+        android:title="@string/permanent" />
+    <item
+        android:id="@+id/nav_one_time"
+        android:title="@string/once" />
+</menu>

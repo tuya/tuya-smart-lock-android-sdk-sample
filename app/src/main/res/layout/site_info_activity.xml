@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewSiteName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/site_name"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/textSiteName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/textViewSiteName"
+        android:layout_toEndOf="@id/textViewSiteName"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/textViewLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewSiteName"
+        android:padding="16dp"
+        android:text="@string/site_location"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/textLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/textViewLocation"
+        android:layout_toEndOf="@id/textViewLocation"
+        android:padding="16dp" />
+
+    <Button
+        android:id="@+id/btnLockList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_above="@+id/btnDeleteSite"
+        android:text="@string/lock_list"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnDeleteSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="16dp"
+        android:text="@string/remove_site"
+        android:textColor="@android:color/white" />
+
+
+</RelativeLayout>

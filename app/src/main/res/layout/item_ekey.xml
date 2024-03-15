@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/keyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:textSize="16sp"
+        tools:text="Ekey Name" />
+
+    <TextView
+        android:id="@+id/account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/keyTextView"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/darkGrey"
+        android:textSize="16sp"
+        tools:text="Ekey Account" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_toRightOf="@+id/keyTextView"
+        android:gravity="right"
+        android:textColor="@color/darkGrey"
+        android:textSize="16sp"
+        tools:text="status" />
+
+    <TextView
+        android:id="@+id/effectiveTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/account"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/darkGrey"
+        android:textSize="16sp"
+        tools:text="Effective Time" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/effectiveTime"
+        android:layout_marginTop="10dp"
+        android:background="@color/gray" />
+
+</RelativeLayout>

@@ -1,0 +1,4 @@
+
+rootProject.name = "ThingSmartLockDemo"
+include ':app'
+include ":base_res"

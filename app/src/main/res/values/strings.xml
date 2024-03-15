@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lock Sdk Demo</string>
+
+    <string name="user_guide_title">Tuya SDK Sample</string>
+    <string name="user_login">Login</string>
+    <string name="user_country_code">Country Code</string>
+    <string name="user_account_tips">Email Address or Phone Number</string>
+    <string name="user_password">Password</string>
+    <string name="user_forget_password_tips">Forget Password?</string>
+    <string name="user_register">Register</string>
+    <string name="user_verification_code">Verification Code</string>
+    <string name="user_send_code">Send Verification Code</string>
+    <string name="user_reset_password">Reset Password</string>
+    <string name="user_new_password">Reset Password</string>
+
+    <string name="user_info_title">User Information</string>
+    <string name="user_name">User Name</string>
+    <string name="user_phone_number">Phone Number</string>
+    <string name="user_email_address">Email Address</string>
+
+    <string name="user_management">USER MANAGEMENT</string>
+    <string name="user_logout">Logout</string>
+
+    <string name="user_time_zone">Time Zone</string>
+    <string name="user_unit_temperature">Unit of Temperature</string>
+    <string name="app_version_tips">SDK Ver: %s</string>
+    <string name="main_logo">Tuya Smart</string>
+
+    <string name="user_update_coordinate">Update Geographic Coordinate</string>
+    <string name="user_deactivate_account">Deactivate Account</string>
+
+    <string name="user_country_China">China</string>
+    <string name="user_country_America">America</string>
+    <string name="user_country_English">English</string>
+    <string name="user_country_Australia">Australia</string>
+    <string name="user_country_Japan">Japan</string>
+    <string name="user_country_Egypt">Egypt</string>
+
+    <string name="site_manager">Site Manager</string>
+    <string name="site_list">Site List</string>
+    <string name="site_name">Site Name</string>
+    <string name="site_location">Site Location</string>
+    <string name="create">Create</string>
+    <string name="create_site">Create Site</string>
+    <string name="success">Operation Succeed</string>
+    <string name="failed">Operation failed</string>
+    <string name="add_lock">Add Lock</string>
+    <string name="unlock">Unlock</string>
+    <string name="searching_and_config_device">Searching Lock Device and Configuring...</string>
+    <string name="remove">Remove</string>
+    <string name="connect">Connect</string>
+    <string name="permanent">Permanent</string>
+    <string name="periodicity">Periodicity</string>
+    <string name="once">Once</string>
+    <string name="effective_time">Effective Time</string>
+    <string name="invalid_time">Invalid Time</string>
+    <string name="loop_mode">Loop Mode</string>
+    <string name="account">Account</string>
+    <string name="account_input_hint">Input Phone Number or Email</string>
+    <string name="username_input_hint">Input User Name</string>
+    <string name="start_time">Start Time</string>
+    <string name="end_time">End Time</string>
+    <string name="create_ekey">Create EKey</string>
+    <string name="lock_name">Lock Name</string>
+    <string name="online_status">Online Status</string>
+    <string name="battery_level">Battery Level</string>
+    <string name="user_type">User Type</string>
+    <string name="ekey">EKey</string>
+    <string name="password">Password</string>
+    <string name="operation_log">Operation Records</string>
+    <string name="setting">Settings</string>
+    <string name="lock_list">Lock List</string>
+    <string name="remove_site">Remove Site</string>
+    <string name="site_detail">Site Detail</string>
+    <string name="permanent_online">Permanent(Online)</string>
+    <string name="once_offline">Once(Offline)</string>
+    <string name="online_password">Online Password</string>
+    <string name="offline_password">Offline Password</string>
+    <string name="create_password">Create Password</string>
+    <string name="effect">Effect</string>
+    <string name="wait_effect">Wait Effect</string>
+    <string name="expired">Expired</string>
+    <string name="limit_offline">Limit Offline</string>
+    <string name="limit_online">Limit Online</string>
+    <string name="effective_time_or_invalid_time_error">Effective Time or Invalid Time Error</string>
+    <string name="clear_code">Clean Code</string>
+    <string name="operation_records">Operation Records</string>
+    <string name="unlock_records">Open Records</string>
+    <string name="alarm_records">Alarm Records</string>
+    <string name="operation_user">Operation User:</string>
+    <string name="operation_type">Operation Type:</string>
+    <string name="operation_time">Operation Time:</string>
+    <string name="alarm_type">Alarm Type:</string>
+    <string name="report_time">Report Time:</string>
+    <string name="lock_detail">Lock Detail</string>
+    <string name="ekey_detail">EKey Detail</string>
+    <string name="ekey_list">EKey List</string>
+    <string name="password_detail">Password Detail</string>
+    <string name="password_list">Password List</string>
+    <string name="device_id">Device ID</string>
+    <string name="copy_id">Copy ID</string>
+    <string name="load_more">Load More</string>
+    <string name="searching_and_config_warning">Please open bluetooth switch,enable Location and Nearby Devices(Above Android 12) Permission</string>
+    <string name="update">Update</string>
+</resources>

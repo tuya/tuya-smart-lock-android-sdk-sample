@@ -1,1 +1,1 @@
-# tuya-smart-lock-android-sdk-sample
+SDK Demo运行方式请参考[快速集成](https://developer.tuya.com/cn/docs/app-development/lock_sdk_fast_integration?id=Kdf0uhi9pmucr)

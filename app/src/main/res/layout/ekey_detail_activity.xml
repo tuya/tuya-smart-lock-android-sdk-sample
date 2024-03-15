@@ -1,0 +1,261 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/keyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/editTextAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:hint="@string/account"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/et_account"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toRightOf="@+id/editTextAccount"
+            android:hint="@string/account_input_hint"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/editTextName"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@id/et_account"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:hint="@string/user_name" />
+
+        <EditText
+            android:id="@+id/et_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/editTextName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toRightOf="@+id/editTextName"
+            android:hint="@string/username_input_hint"
+            android:textSize="16dp" />
+
+
+        <LinearLayout
+            android:id="@+id/startDateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextName"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/effective_time" />
+
+            <EditText
+                android:id="@+id/etEffectiveTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="yyyy-MM-dd HH:mm:ss" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/endDateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/startDateLayout"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/invalid_time" />
+
+            <EditText
+                android:id="@+id/etInvalidTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="yyyy-MM-dd HH:mm:ss" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_loop_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/endDateLayout"
+            android:layout_marginEnd="16dp"
+            android:text="@string/loop_mode" />
+
+        <LinearLayout
+            android:id="@+id/repeatModeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_loop_mode"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/buttonSunday"
+                style="@style/NoPaddingButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_blue_button"
+                android:gravity="center"
+                android:text="Sun"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/buttonMonday"
+                style="@style/NoPaddingButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_blue_button"
+                android:gravity="center"
+                android:text="Mon"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/buttonTuesday"
+                style="@style/NoPaddingButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_blue_button"
+                android:gravity="center"
+                android:text="Tue"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/buttonWednesday"
+                style="@style/NoPaddingButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_blue_button"
+                android:gravity="center"
+                android:text="Wed"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/buttonThursday"
+                style="@style/NoPaddingButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_blue_button"
+                android:gravity="center"
+                android:text="Thu"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/buttonFriday"
+                style="@style/NoPaddingButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_blue_button"
+                android:gravity="center"
+                android:text="Fri"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/buttonSaturday"
+                style="@style/NoPaddingButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_blue_button"
+                android:gravity="center"
+                android:text="Sat"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_start_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/repeatModeLayout"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/start_time" />
+
+            <EditText
+                android:id="@+id/et_start_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="00:00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_end_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_start_date"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/end_time" />
+
+            <EditText
+                android:id="@+id/et_end_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="23:59" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/remove"
+            android:text="@string/update" />
+        <Button
+            android:id="@+id/remove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/remove" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
