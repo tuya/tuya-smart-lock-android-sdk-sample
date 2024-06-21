@@ -9,14 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.thingclips.smart.lock.bean.LockLivecycle;
+import com.thingclips.smart.lock.bean.KeyStatus;
 import com.thingclips.smart.lock.bean.PasswordBean;
 import com.thingclips.smart.lock.bean.PasswordType;
 import com.thingclips.smart.lock.bean.PeriodType;
 import com.tuya.appsdk.sample.R;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,6 +56,7 @@ public class PasswordListAdapter extends RecyclerView.Adapter<PasswordListAdapte
 
     class KeyViewHolder extends RecyclerView.ViewHolder {
 
+        public TextView subStatus;
         public TextView keyTextView;
         public TextView accountTextView;
         public TextView statusView;
@@ -71,6 +70,7 @@ public class PasswordListAdapter extends RecyclerView.Adapter<PasswordListAdapte
             accountTextView = itemView.findViewById(R.id.account);
             statusView = itemView.findViewById(R.id.status);
             effectiveTimeView = itemView.findViewById(R.id.effectiveTime);
+            subStatus = itemView.findViewById(R.id.sub_status);
         }
 
         void bind(PasswordBean key) {
@@ -96,6 +96,33 @@ public class PasswordListAdapter extends RecyclerView.Adapter<PasswordListAdapte
                     break;
                 case PasswordType.TIME_PERMANENT_ONLINE:
                     effectiveTimeView.setText(R.string.permanent_online);
+                    break;
+            }
+
+            switch (key.keyStatus) {
+                case KeyStatus.EFFECTIVE:
+                    subStatus.setText("");
+                    break;
+                case KeyStatus.CREATING:
+                    subStatus.setText(R.string.creatting);
+                    break;
+                case KeyStatus.DEL_ING:
+                    subStatus.setText(R.string.deletting);
+                    break;
+                case KeyStatus.CREATE_FAIL:
+                    subStatus.setText(R.string.create_fail);
+                    break;
+                case KeyStatus.WAIT_EFFECT:
+                    subStatus.setText(R.string.wait_effect);
+                    break;
+                case KeyStatus.EFFECTIVE_DEL_FAILED:
+                case KeyStatus.INVALID_DEL_FAILED:
+                case KeyStatus.WAIT_EFFECT_DEL_FAILED:
+                case KeyStatus.DEL_FAILED:
+                    subStatus.setText(R.string.delete_fail);
+                    break;
+                default:
+                    subStatus.setText(R.string.abnormal);
                     break;
             }
         }

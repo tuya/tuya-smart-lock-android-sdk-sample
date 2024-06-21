@@ -68,7 +68,7 @@ public class OperationRecordsListActivity extends AppCompatActivity {
         recordsParams.groupId = siteId;
         recordsParams.pageSize = 20;
         recordsParams.sortValues = sortValues;
-        ThingOSLock.newLockInstance(deviceId).getOperateRecords(recordsParams, new IThingResultCallback<OperateRecordsResp>() {
+        ThingOSLock.newLockInstance(siteId, deviceId).getOperateRecords(recordsParams, new IThingResultCallback<OperateRecordsResp>() {
             @Override
             public void onSuccess(OperateRecordsResp result) {
                 loading = false;

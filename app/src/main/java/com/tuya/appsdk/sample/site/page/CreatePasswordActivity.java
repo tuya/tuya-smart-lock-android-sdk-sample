@@ -46,6 +46,8 @@ public class CreatePasswordActivity extends AppCompatActivity {
     private HashSet<Integer> grayButtonIndex = new HashSet<>();
     private BottomNavigationView subNavigationView;
     private View userNameTextView;
+    private View passwordLayout;
+    private EditText passwordEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,9 @@ public class CreatePasswordActivity extends AppCompatActivity {
 
         endTimeLayout = findViewById(R.id.ll_end_date);
         endTimeEditText = endTimeLayout.findViewById(R.id.et_end_date);
+
+        passwordLayout = findViewById(R.id.ll_password);
+        passwordEditText = findViewById(R.id.et_password);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
@@ -129,6 +134,9 @@ public class CreatePasswordActivity extends AppCompatActivity {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+        String password = passwordEditText.getText().toString().trim();
+
+
         if (Objects.equals(passwordType, PasswordType.TIME_LIMIT_ONLINE)) {
             //limit online
             long effectiveTime = 0L;
@@ -140,7 +148,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
                 Toast.makeText(CreatePasswordActivity.this, R.string.effective_time_or_invalid_time_error, Toast.LENGTH_SHORT).show();
                 return;
             }
-            ThingOSLock.newLockInstance(deviceId).createLimitOnlinePassword(siteId, userNameEditText.getText().toString().trim(),
+            ThingOSLock.getPasswordManager().createLimitOnlinePassword(siteId, deviceId, password, userNameEditText.getText().toString().trim(),
                     effectiveTime, invalidTime, getWorkingDay(),
                     startTimeEditText.getText().toString().trim(),
                     endTimeEditText.getText().toString().trim(), callback);
@@ -166,10 +174,10 @@ public class CreatePasswordActivity extends AppCompatActivity {
             params.passwordType = PasswordType.TIME_LIMIT_OFFLINE;
             params.timeZoneId = ThingOSUser.getUserInstance().getUser().getTimezoneId();
 
-            ThingOSLock.newLockInstance(deviceId).createOfflinePassword(params, callback);
+            ThingOSLock.getPasswordManager().createOfflinePassword(params, callback);
         } else if (Objects.equals(passwordType, PasswordType.TIME_PERMANENT_ONLINE)) {
             //permanent online
-            ThingOSLock.newLockInstance(deviceId).createPermanentPassword(siteId, userNameEditText.getText().toString().trim(), callback);
+            ThingOSLock.getPasswordManager().createPermanentPassword(siteId, deviceId, password, userNameEditText.getText().toString().trim(), callback);
         } else if (Objects.equals(passwordType, PasswordType.TIME_ONCE_OFFLINE)) {
             //once offline
             OncePasswordCreateParams oncePasswordCreateParams = new OncePasswordCreateParams();
@@ -177,7 +185,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
             oncePasswordCreateParams.groupId = siteId;
             oncePasswordCreateParams.deviceId = deviceId;
 
-            ThingOSLock.newLockInstance(deviceId).createOncePassword(oncePasswordCreateParams, callback);
+            ThingOSLock.getPasswordManager().createOncePassword(oncePasswordCreateParams, callback);
         }
     }
 
@@ -200,6 +208,8 @@ public class CreatePasswordActivity extends AppCompatActivity {
                         endTimeLayout.setVisibility(View.VISIBLE);
                         loopModeText.setVisibility(View.VISIBLE);
                         subNavigationView.setVisibility(View.VISIBLE);
+                        passwordLayout.setVisibility(View.VISIBLE);
+
                         passwordType = PasswordType.TIME_LIMIT_ONLINE;
                         Menu menu = subNavigationView.getMenu();
                         menu.getItem(0).setChecked(true);
@@ -212,6 +222,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
                         endTimeLayout.setVisibility(View.GONE);
                         loopModeText.setVisibility(View.GONE);
                         subNavigationView.setVisibility(View.GONE);
+                        passwordLayout.setVisibility(View.VISIBLE);
 
                         passwordType = PasswordType.TIME_PERMANENT_ONLINE;
                         return true;
@@ -223,6 +234,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
                         endTimeLayout.setVisibility(View.GONE);
                         loopModeText.setVisibility(View.GONE);
                         subNavigationView.setVisibility(View.GONE);
+                        passwordLayout.setVisibility(View.GONE);
                         passwordType = PasswordType.TIME_ONCE_OFFLINE;
                         return true;
                     case R.id.nav_temporary_online:
@@ -231,16 +243,18 @@ public class CreatePasswordActivity extends AppCompatActivity {
                         startTimeLayout.setVisibility(View.VISIBLE);
                         endTimeLayout.setVisibility(View.VISIBLE);
                         loopModeText.setVisibility(View.VISIBLE);
+                        passwordLayout.setVisibility(View.VISIBLE);
                         item.setChecked(true);
-                        break;
+                        return true;
                     case R.id.nav_temporary_offline:
                         passwordType = PasswordType.TIME_LIMIT_OFFLINE;
                         loopModeLayout.setVisibility(View.GONE);
                         startTimeLayout.setVisibility(View.GONE);
                         endTimeLayout.setVisibility(View.GONE);
                         loopModeText.setVisibility(View.GONE);
+                        passwordLayout.setVisibility(View.GONE);
                         item.setChecked(true);
-                        break;
+                        return true;
                 }
                 return false;
             };

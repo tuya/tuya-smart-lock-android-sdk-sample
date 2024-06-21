@@ -131,7 +131,7 @@ public class CreateKeyActivity extends AppCompatActivity {
             params.ekeyName = userNameEditText.getText().toString().trim();
             params.deviceId = deviceId;
             params.siteId = siteId;
-            ThingOSLock.newLockInstance(deviceId).createPermanentEKey(params, callback);
+            ThingOSLock.getEkeyManager().createPermanentEKey(params, callback);
 
         } else if (Objects.equals(liveCycle, LockLivecycle.ONCE)) {
             OnceEKeyCreateParams params = new OnceEKeyCreateParams();
@@ -147,7 +147,7 @@ public class CreateKeyActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.effective_time_or_invalid_time_error, Toast.LENGTH_SHORT).show();
                 return;
             }
-            ThingOSLock.newLockInstance(deviceId).createOnceEKey(params, callback);
+            ThingOSLock.getEkeyManager().createOnceEKey(params, callback);
 
         } else if (Objects.equals(liveCycle, LockLivecycle.PERIODICITY)) {
             PeriodicityEKeyCreateParams params = new PeriodicityEKeyCreateParams();
@@ -166,7 +166,7 @@ public class CreateKeyActivity extends AppCompatActivity {
             params.startMinuteFormat = startTimeEditText.getText().toString().trim();
             params.endMinuteFormat = endTimeEditText.getText().toString().trim();
             params.workingDay = getWorkingDay();
-            ThingOSLock.newLockInstance(deviceId).createPeriodicityEKey(params, callback);
+            ThingOSLock.getEkeyManager().createPeriodicityEKey(params, callback);
         }
     }
 

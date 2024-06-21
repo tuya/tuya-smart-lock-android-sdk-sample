@@ -103,4 +103,84 @@
     <string name="load_more">Load More</string>
     <string name="searching_and_config_warning">Please open bluetooth switch,enable Location and Nearby Devices(Above Android 12) Permission</string>
     <string name="update">Update</string>
+    <string name="add_ble_lock">Add Bluetooth Lock</string>
+    <string name="add_ble_gateway">Add Bluetooth Gateway</string>
+    <string name="add_zigbee_gateway">Add Zigbee Gateway</string>
+    <string name="add_zigbee_lock">Add Zigbee Lock</string>
+    <string name="add_device">Add Device</string>
+    <string name="ez_config_title">EZ Mode</string>
+
+    <string name="device_config_ez_title">EZ Mode</string>
+    <string name="device_config_ez_description">EZ Mode ,it means that the App sends a UDP broadcast
+        packet or multicast packet containing Wi-Fi name and Wi-Fi password, the Wi-Fi
+        chip of the device can receive the UDP packet and decrypt the Wi-Fi name and Wi-Fi
+        password through a specific form of UDP organization, then the device configures Wi-Fi,
+        and then the device can go online to connect to the cloud, the process of registering the
+        device information to the cloud
+
+Translated with www.DeepL.com/Translator (free version)</string>
+    <string name="device_config_ap_title">AP Mode</string>
+    <string name="device_config_ap_description">AP Mode, also known as hotspot mode.
+        The mobile phone connects the smart device’s hotspot, and the two parties establish
+        a Socket connection to exchange data through the agreed port.Let the device in pairing mode,
+        \nthen switch iPhone’s Wi-Fi to the device’s hotspot. Type in the SSID and password
+        of which Wi-Fi you want the device connect to, then tap Search.</string>
+    <string name="device_config_ble_title">Bluetooth Low Energy</string>
+
+    <string name="device_config_wifi_ssid">WIFI SSID</string>
+    <string name="device_config_wifi_password">WIFI Password</string>
+    <string name="device_config_search">Search</string>
+    <string name="device_config_stop">Stop</string>
+    <string name="device_config_sp_mode_hint">AP Mode, also known as hotspot mode. The mobile phone connects the smart device’s hotspot, and the two parties establish a Socket connection to exchange data through the agreed port.Let the device in pairing mode, \nthen switch iPhone’s Wi-Fi to the device’s hotspot. Type in the SSID and password of which Wi-Fi you want the device connect to, then tap Search.</string>
+
+    <string name="ble_activator_hint">BLE device types are divided into: Single and SIGMesh dual mode. Single devices are directly connected via mobile phone Bluetooth. Dual-mode devices connect to Wi-Fi via Bluetooth and activate in the cloud</string>
+    <string name="ble_activator_title">BLE Config</string>
+    <string name="btn_activator_ble_device">activator device</string>
+    <string name="config_ble_gateway">Add Bluetooth Gateway</string>
+    <string name="searching_and_config_warning_zigbee_wired_gateway">Ensure that the WIFI currently connected to the mobile phone is on the same LAN as the WIFI connected to the gateway</string>
+    <string name="gateway_list">Gateway List</string>
+    <string name="update_name">Update Name</string>
+    <string name="search_sub_device">Search Sub-devices</string>
+    <string name="input_name">Please enter name</string>
+    <string name="confirm">Confirm</string>
+    <string name="start_config_device">Start Active</string>
+    <string name="searching_sub_device">Searching Sub-devices</string>
+    <string name="gateway_name">Gateway Name</string>
+    <string name="gateway_binded_device_list">Bound Device list</string>
+    <string name="unbind">Unbind</string>
+    <string name="gateway_unbind_device_list">Device to be bound</string>
+    <string name="bind">Bind</string>
+    <string name="fingerprint">Fingerprint</string>
+    <string name="card">Card</string>
+    <string name="card_list">Card List</string>
+    <string name="create_card">Create Card</string>
+    <string name="card_detail">Card Detail</string>
+    <string name="rename">Update Name</string>
+    <string name="card_type">Card Type</string>
+    <string name="create_fingerprint">Create Fingerprint</string>
+    <string name="fingerprint_list">Fingerprint List</string>
+    <string name="fingerprint_detail">Fingerprint Detail</string>
+    <string name="creatting">Creating</string>
+    <string name="deletting">Deleting</string>
+    <string name="create_fail">Create Failed</string>
+    <string name="abnormal">Abnormal</string>
+    <string name="delete_fail">Delete Failed</string>
+    <string name="retry_create">Retry Create</string>
+    <string name="force_remove">Force Delete</string>
+    <string name="auto_close">Automatic Lock</string>
+    <string name="lock">Lock</string>
+    <string name="auto_lock_on">Enable automatic Lock</string>
+    <string name="auto_lock_off">Disable automatic lock</string>
+    <string name="clear_password">Clear Password</string>
+    <string name="clear_fingerprint">Clear Fingerprint</string>
+    <string name="add_zigbee_device_tip">Add Zigbee subdevices to the gateway list</string>
+    <string name="reverse_status">Reverse-Lock status</string>
+    <string name="reverse_locked">Reverse Locked</string>
+    <string name="reverse_not_locked">Reverse unlocked</string>
+    <string name="activator_success">Active success：</string>
+    <string name="clear_card">Clear Card</string>
+    <string name="input_password">Input Password</string>
+    <string name="cancel">取消</string>
+    <string name="cancel_success">取消成功</string>
+    <string name="cancel_failed">取消失敗</string>
 </resources>

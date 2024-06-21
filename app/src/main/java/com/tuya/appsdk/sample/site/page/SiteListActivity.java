@@ -18,8 +18,7 @@ import com.thingclips.smart.lock.ThingOSLock;
 import com.thingclips.smart.lock.bean.SiteDetail;
 import com.tuya.appsdk.sample.R;
 import com.tuya.appsdk.sample.adapter.SiteAdapter;
-import com.tuya.appsdk.sample.main.MainSampleListActivity;
-import com.tuya.appsdk.sample.resource.HomeModel;
+import com.tuya.appsdk.sample.resource.SiteModel;
 import com.tuya.appsdk.sample.user.main.UserFuncActivity;
 
 import java.util.ArrayList;
@@ -44,6 +43,7 @@ public class SiteListActivity extends AppCompatActivity {
         siteAdapter = new SiteAdapter(siteList, new SiteAdapter.SiteClickListener() {
             @Override
             public void onSiteClick(SiteDetail siteDetail) {
+                SiteModel.INSTANCE.setCurrentSite(SiteListActivity.this, siteDetail.gid);
                 Intent intent = new Intent(SiteListActivity.this, SiteDetailActivity.class);
                 intent.putExtra("site_info", JSON.toJSONString(siteDetail));
                 startActivity(intent);
@@ -62,7 +62,7 @@ public class SiteListActivity extends AppCompatActivity {
                 ThingOSUser.getUserInstance().logout(new ILogoutCallback() {
                     @Override
                     public void onSuccess() {
-                        HomeModel.INSTANCE.clear(SiteListActivity.this);
+                        SiteModel.INSTANCE.clear(SiteListActivity.this);
 
                         Intent intent = new Intent(SiteListActivity.this, UserFuncActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

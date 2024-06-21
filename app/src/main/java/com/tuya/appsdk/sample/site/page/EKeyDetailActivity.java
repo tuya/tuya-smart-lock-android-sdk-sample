@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.thingclips.smart.home.sdk.callback.IThingResultCallback;
 import com.thingclips.smart.lock.ThingOSLock;
+import com.thingclips.smart.lock.api.ILockEkey;
 import com.thingclips.smart.lock.bean.EKeyBean;
 import com.thingclips.smart.lock.bean.EKeyResp;
 import com.thingclips.smart.lock.bean.EKeyUpdateParams;
@@ -49,6 +50,7 @@ public class EKeyDetailActivity extends AppCompatActivity {
 
     private HashSet<Integer> grayButtonIndex = new HashSet<>();
     private EKeyBean eKeyBean;
+    private ILockEkey lockEkey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,8 @@ public class EKeyDetailActivity extends AppCompatActivity {
         if (intent != null && intent.hasExtra("ekey_id")) {
             ekeyId = intent.getStringExtra("ekey_id");
         }
+
+        lockEkey = ThingOSLock.newEKeyInstance(siteId, deviceId, ekeyId);
 
         accountEditText = findViewById(R.id.et_account);
         userNameEditText = findViewById(R.id.et_user_name);
@@ -118,7 +122,7 @@ public class EKeyDetailActivity extends AppCompatActivity {
                 }
             });
         }
-        ThingOSLock.newLockInstance(deviceId).getEKeyDetail(siteId, ekeyId, new IThingResultCallback<EKeyBean>() {
+        lockEkey.getEKeyDetail(new IThingResultCallback<EKeyBean>() {
             @Override
             public void onSuccess(EKeyBean result) {
                 eKeyBean = result;
@@ -175,7 +179,7 @@ public class EKeyDetailActivity extends AppCompatActivity {
             eKeyUpdateParams.startMinute = startMinuteL;
             eKeyUpdateParams.endMinute = endMinuteL;
         }
-        ThingOSLock.newLockInstance(deviceId).updateEKey(eKeyUpdateParams, new IThingResultCallback<Boolean>() {
+        ThingOSLock.newEKeyInstance(siteId, deviceId, ekeyId).updateEKey(eKeyUpdateParams, new IThingResultCallback<Boolean>() {
             @Override
             public void onSuccess(Boolean result) {
                 Toast.makeText(EKeyDetailActivity.this, R.string.success, Toast.LENGTH_SHORT).show();
@@ -244,7 +248,7 @@ public class EKeyDetailActivity extends AppCompatActivity {
     }
 
     private void removeEKey() {
-        ThingOSLock.newLockInstance(deviceId).removeEKey(siteId, ekeyId, new IThingResultCallback<Boolean>() {
+        ThingOSLock.getEkeyManager().removeEKey(siteId, deviceId, ekeyId, new IThingResultCallback<Boolean>() {
             @Override
             public void onSuccess(Boolean result) {
                 Toast.makeText(EKeyDetailActivity.this, R.string.success, Toast.LENGTH_SHORT).show();

@@ -75,7 +75,7 @@ public class EKeyListActivity extends AppCompatActivity {
         params.pageNo = currentPageNo;
         params.pageSize = 20;
         params.deviceId = deviceId;
-        ThingOSLock.newLockInstance(deviceId).getEKeyList(params, new IThingResultCallback<EKeyListResp>() {
+        ThingOSLock.getEkeyManager().getEKeyList(params, new IThingResultCallback<EKeyListResp>() {
             @Override
             public void onSuccess(EKeyListResp result) {
                 if (currentPageNo == 1) {

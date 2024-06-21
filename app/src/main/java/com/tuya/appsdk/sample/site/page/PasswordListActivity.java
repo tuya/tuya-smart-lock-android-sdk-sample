@@ -62,6 +62,24 @@ public class PasswordListActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.clearButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThingOSLock.getPasswordManager().clearAllPassword(siteId, deviceId, new IThingResultCallback<Boolean>() {
+                    @Override
+                    public void onSuccess(Boolean result) {
+                        onResume();
+                        Toast.makeText(PasswordListActivity.this, R.string.success, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(String errorCode, String errorMessage) {
+                        Toast.makeText(PasswordListActivity.this, getString(R.string.failed) + errorMessage, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
         initCreateButton();
     }
 
@@ -83,7 +101,7 @@ public class PasswordListActivity extends AppCompatActivity {
         params.pageNo = pageNo;
         params.pageSize = 20;
         params.deviceId = deviceId;
-        ThingOSLock.newLockInstance(deviceId).getPasswordList(params, new IThingResultCallback<PasswordListResp>() {
+        ThingOSLock.getPasswordManager().getPasswordList(params, new IThingResultCallback<PasswordListResp>() {
             @Override
             public void onSuccess(PasswordListResp result) {
                 loading = false;

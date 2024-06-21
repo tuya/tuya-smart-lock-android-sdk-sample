@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/copy_id"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/copy_id"
+        android:textColor="@color/white"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/tvDeviceId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/device_id"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDeviceIdValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDeviceId"
+        android:layout_marginBottom="8dp"
+        android:text="--"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/tvDeviceIdValue"
+        android:background="@color/gray" />
+
+    <TextView
+        android:id="@+id/textDeviceNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDeviceIdValue"
+        android:layout_marginBottom="8dp"
+        android:text="@string/gateway_name"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textDeviceNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textDeviceNameLabel"
+        android:layout_marginBottom="8dp"
+        android:text="--"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/textDeviceNameValue"
+        android:background="@color/gray" />
+
+    <TextView
+        android:id="@+id/textOnlineStatusLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textDeviceNameValue"
+        android:layout_marginBottom="8dp"
+        android:text="@string/online_status"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textOnlineStatusValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textOnlineStatusLabel"
+        android:layout_marginBottom="8dp"
+        android:text="--"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textOnlineStatusValue"
+        android:layout_marginBottom="8dp"
+        android:text="@string/gateway_binded_device_list"
+        android:textSize="18sp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDesc" />
+
+    <TextView
+        android:id="@+id/textDesc2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recyclerView"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/gateway_unbind_device_list"
+        android:textSize="18sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDesc2" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</RelativeLayout>

@@ -67,7 +67,7 @@ public class OpenRecordsListActivity extends AppCompatActivity {
         recordsParams.groupId = siteId;
         recordsParams.pageSize = 20;
         recordsParams.sortValues = sortValues;
-        ThingOSLock.newLockInstance(deviceId).getOpenRecords(recordsParams, new IThingResultCallback<OpenRecordsResp>() {
+        ThingOSLock.newLockInstance(siteId, deviceId).getOpenRecords(recordsParams, new IThingResultCallback<OpenRecordsResp>() {
             @Override
             public void onSuccess(OpenRecordsResp result) {
                 loading = false;

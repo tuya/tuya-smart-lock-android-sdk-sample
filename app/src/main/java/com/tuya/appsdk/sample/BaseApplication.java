@@ -14,25 +14,18 @@ package com.tuya.appsdk.sample;
 
 import android.app.Application;
 
-import com.thingclips.sdk.os.ThingOSUser;
-import com.thingclips.smart.android.base.provider.ApiUrlProvider;
 import com.thingclips.smart.android.network.ThingSmartNetWork;
 import com.thingclips.smart.optimus.sdk.ThingOptimusSdk;
 import com.thingclips.smart.sdk.ThingSdk;
 
-/**
- * Base Application
- *
- * @author chuanfeng <a href="mailto:developer@tuya.com"/>
- * @since 2021/2/9 10:41 AM
- */
 public final class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         ThingSdk.setDebugMode(true);
         ThingSdk.init(this);
-        ThingSmartNetWork.mSdkVersion = "1.3.0";
+        ThingSmartNetWork.mSdkVersion = "1.4.0";
         ThingOptimusSdk.init(this);
     }
 }

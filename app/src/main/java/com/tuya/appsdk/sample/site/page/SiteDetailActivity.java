@@ -2,8 +2,6 @@ package com.tuya.appsdk.sample.site.page;// SiteDetailActivity.java
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,7 +18,7 @@ import com.tuya.appsdk.sample.R;
 public class SiteDetailActivity extends AppCompatActivity {
 
     private TextView textSiteName, textLocation;
-    private Button btnLockList, btnDeleteSite;
+    private Button btnLockList, btnGatewayList, btnDeleteSite;
     private SiteDetail siteDetail;
     private boolean isSiteNameChanged = false;
 
@@ -33,6 +31,7 @@ public class SiteDetailActivity extends AppCompatActivity {
         textSiteName = findViewById(R.id.textSiteName);
         textLocation = findViewById(R.id.textLocation);
         btnLockList = findViewById(R.id.btnLockList);
+        btnGatewayList = findViewById(R.id.btnGatewayList);
         btnDeleteSite = findViewById(R.id.btnDeleteSite);
 
         Intent intent = getIntent();
@@ -48,8 +47,18 @@ public class SiteDetailActivity extends AppCompatActivity {
         btnLockList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent lockListIntent = new Intent(SiteDetailActivity.this, LockListActivity.class);
+                Intent lockListIntent = new Intent(SiteDetailActivity.this, DeviceListActivity.class);
                 lockListIntent.putExtra("site_id", siteDetail.gid);
+                lockListIntent.putExtra("category", "lock");
+                startActivity(lockListIntent);
+            }
+        });
+        btnGatewayList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent lockListIntent = new Intent(SiteDetailActivity.this, DeviceListActivity.class);
+                lockListIntent.putExtra("site_id", siteDetail.gid);
+                lockListIntent.putExtra("category", "gateway");
                 startActivity(lockListIntent);
             }
         });

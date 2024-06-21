@@ -3,7 +3,6 @@ package com.tuya.appsdk.sample.site.page;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -12,23 +11,36 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alibaba.fastjson.JSON;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.thingclips.sdk.os.ThingOSDevice;
+import com.thingclips.smart.android.common.utils.L;
 import com.thingclips.smart.home.sdk.callback.IThingResultCallback;
 import com.thingclips.smart.lock.ThingOSLock;
+import com.thingclips.smart.lock.api.ILockDevice;
+import com.thingclips.smart.lock.api.ILockStatusListener;
 import com.thingclips.smart.lock.bean.LockAbility;
 import com.thingclips.smart.lock.bean.LockDetailBean;
+import com.thingclips.smart.lock.bean.LockLivecycle;
+import com.thingclips.smart.lock.bean.LockStatus;
+import com.thingclips.smart.lock.bean.ReverseLockState;
 import com.thingclips.smart.lock.bean.TimeScheduleInfo;
 import com.tuya.appsdk.sample.R;
-import com.thingclips.smart.lock.bean.LockLivecycle;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DoorLockDetailActivity extends AppCompatActivity {
 
+    private static final String TAG = "DoorLockDetailActivity";
     private long siteId;
     private String deviceId;
+
+    private LockDetailBean data;
+    private Button lockButton;
+    private ILockDevice lockDevice;
+    private TextView reverseStatusView;
+    private TextView openStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +57,17 @@ public class DoorLockDetailActivity extends AppCompatActivity {
             deviceId = intent.getStringExtra("device_id");
         }
 
+        lockDevice = ThingOSLock.newLockInstance(siteId, deviceId);
+        lockDevice.registerLockStatusListener(new ILockStatusListener() {
+            @Override
+            public void onStateChanged(LockStatus status) {
+                L.i(TAG, JSON.toJSONString(status));
+                lockButton.setEnabled(status.manualCloseFlag);
+                reverseStatusView.setText(getReverseStatus(status.reverseLockState));
+                openStatus.setText(status.closedOpenedState);
+            }
+        });
+
         TextView deviceIdView = findViewById(R.id.tvDeviceIdValue);
         TextView copyIdView = findViewById(R.id.copy_id);
         TextView textDeviceNameValue = findViewById(R.id.textDeviceNameValue);
@@ -52,12 +75,43 @@ public class DoorLockDetailActivity extends AppCompatActivity {
         TextView textBatteryLevelValue = findViewById(R.id.textBatteryLevelValue);
         TextView textUserTypeValue = findViewById(R.id.textUserTypeValue);
         TextView textEffectiveTimeValue = findViewById(R.id.textEffectiveTimeValue);
+        reverseStatusView = findViewById(R.id.tvReverseStatus);
+        openStatus = findViewById(R.id.locked_status);
 
         Button buttonElectronicKey = findViewById(R.id.buttonElectronicKey);
         Button buttonPassword = findViewById(R.id.buttonPassword);
         Button buttonLog = findViewById(R.id.buttonLog);
 //        Button buttonSettings = findViewById(R.id.buttonSettings);
         Button buttonUnlock = findViewById(R.id.buttonUnlock);
+        Button buttonFingerprint = findViewById(R.id.buttonFingerprint);
+        Button buttonCard = findViewById(R.id.buttonCard);
+        Button autoLockOnButton = findViewById(R.id.btnAutoCloseOn);
+        Button autoLockOffButton = findViewById(R.id.btnAutoCloseOff);
+        View tvAutoClose = findViewById(R.id.tvAutoClose);
+        lockButton = findViewById(R.id.lock);
+        findViewById(R.id.force_delete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThingOSLock.newSiteInstance(siteId).forceDeleteLock(deviceId, new IThingResultCallback<Boolean>() {
+                    @Override
+                    public void onSuccess(Boolean result) {
+                        finish();
+                    }
+
+                    @Override
+                    public void onError(String errorCode, String errorMessage) {
+                        Toast.makeText(DoorLockDetailActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        if (lockDevice.isSupportAutoLock()) {
+            autoLockOnButton.setVisibility(View.VISIBLE);
+            autoLockOffButton.setVisibility(View.VISIBLE);
+            tvAutoClose.setVisibility(View.VISIBLE);
+            lockButton.setVisibility(View.VISIBLE);
+        }
 
         deviceIdView.setText(deviceId);
         copyIdView.setOnClickListener(view -> {
@@ -77,12 +131,79 @@ public class DoorLockDetailActivity extends AppCompatActivity {
             startActivity(passwordIntent);
         });
 
+        lockButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lockDevice.lock(new IThingResultCallback<Boolean>() {
+                    @Override
+                    public void onSuccess(Boolean result) {
+                        data.manualCloseFlag = false;
+                        Toast.makeText(DoorLockDetailActivity.this, R.string.success, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(String errorCode, String errorMessage) {
+                        Toast.makeText(DoorLockDetailActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        autoLockOnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lockDevice.setAutoLockSwitch(true, new IThingResultCallback<Boolean>() {
+                    @Override
+                    public void onSuccess(Boolean result) {
+                        Toast.makeText(DoorLockDetailActivity.this, R.string.success, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(String errorCode, String errorMessage) {
+                        Toast.makeText(DoorLockDetailActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+        autoLockOffButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lockDevice.setAutoLockSwitch(false, new IThingResultCallback<Boolean>() {
+                    @Override
+                    public void onSuccess(Boolean result) {
+                        Toast.makeText(DoorLockDetailActivity.this, R.string.success, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(String errorCode, String errorMessage) {
+                        Toast.makeText(DoorLockDetailActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        buttonFingerprint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent passwordIntent = new Intent(DoorLockDetailActivity.this, FingerprintListActivity.class).putExtra("site_id", siteId).putExtra("device_id", deviceId);
+                startActivity(passwordIntent);
+            }
+        });
+
+        buttonCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent passwordIntent = new Intent(DoorLockDetailActivity.this, CardListActivity.class).putExtra("site_id", siteId).putExtra("device_id", deviceId);
+                startActivity(passwordIntent);
+            }
+        });
+
         buttonLog.setOnClickListener(view -> {
             showActionSheet();
         });
 
         buttonUnlock.setOnClickListener(view -> {
-            ThingOSLock.newLockInstance(deviceId).unlock(siteId, new IThingResultCallback<Boolean>() {
+            lockDevice.unlock(new IThingResultCallback<Boolean>() {
                 @Override
                 public void onSuccess(Boolean result) {
                     Toast.makeText(DoorLockDetailActivity.this, R.string.success, Toast.LENGTH_SHORT).show();
@@ -96,9 +217,10 @@ public class DoorLockDetailActivity extends AppCompatActivity {
 
         });
 
-        ThingOSLock.newLockInstance(deviceId).getLockDetail(siteId, new IThingResultCallback<LockDetailBean>() {
+        lockDevice.getLockDetail(new IThingResultCallback<LockDetailBean>() {
             @Override
             public void onSuccess(LockDetailBean result) {
+                data = result;
                 textDeviceNameValue.setText(result.deviceName);
                 textOnlineStatusValue.setText(ThingOSDevice.getDeviceBean(result.deviceId).getIsOnline() ? "Online" : "Offline");
                 textBatteryLevelValue.setText(result.electricQuantity + "%");
@@ -130,8 +252,16 @@ public class DoorLockDetailActivity extends AppCompatActivity {
                         buttonPassword.setVisibility(View.VISIBLE);
                     } else if (ability.equals(LockAbility.LOG)) {
                         buttonLog.setVisibility(View.VISIBLE);
+                    } else if (ability.equals(LockAbility.FINGERPRINT)) {
+                        buttonFingerprint.setVisibility(View.VISIBLE);
+                    } else if (ability.equals(LockAbility.CARD)) {
+                        buttonCard.setVisibility(View.VISIBLE);
                     }
                 }
+
+                lockButton.setEnabled(result.manualCloseFlag);
+                reverseStatusView.setText(getReverseStatus(result.reverseLockState));
+                openStatus.setText(result.closedOpenedState);
             }
 
             @Override
@@ -139,6 +269,20 @@ public class DoorLockDetailActivity extends AppCompatActivity {
                 Toast.makeText(DoorLockDetailActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private String getReverseStatus(int status) {
+        if (status == ReverseLockState.STATE_LOCKED) {
+            return getString(R.string.reverse_locked);
+        } else if (status == 0) {
+            return getString(R.string.reverse_not_locked);
+        }
+        return "Unknown";
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     private void showActionSheet() {
@@ -169,4 +313,9 @@ public class DoorLockDetailActivity extends AppCompatActivity {
         bottomSheetDialog.show();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        lockDevice.unregisterLockStatusListener();
+    }
 }

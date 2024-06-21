@@ -25,7 +25,7 @@
         android:required="false" />
     <uses-permission
         android:name="android.permission.WAKE_LOCK"
-        android:required="false" />
+        android:required="false" /> <!-- added from 2.7.2 -->
     <uses-permission
         android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"
         android:required="false" />
@@ -78,8 +78,8 @@
         <activity android:name=".site.page.SiteListActivity" />
         <activity android:name=".site.page.CreateSiteActivity" />
         <activity android:name=".site.page.SiteDetailActivity" />
-        <activity android:name=".site.page.LockListActivity" />
-        <activity android:name=".site.page.SetupDeviceActivity" />
+        <activity android:name=".site.page.DeviceListActivity" />
+        <activity android:name=".site.page.config.BleLockDeviceActivity" />
         <activity android:name=".site.page.DoorLockDetailActivity" />
         <activity android:name=".site.page.CreateKeyActivity" />
         <activity android:name=".site.page.EKeyListActivity" />
@@ -90,6 +90,16 @@
         <activity android:name=".site.page.OperationRecordsListActivity" />
         <activity android:name=".site.page.OpenRecordsListActivity" />
         <activity android:name=".site.page.AlarmRecordsListActivity" />
+        <activity android:name=".site.page.config.BleGatewaySetupActivity" />
+        <activity android:name=".site.page.config.ZigbeeWiredGatewayConfigActivity" />
+        <activity android:name=".site.page.config.GwConfigSubDeviceActivity" />
+        <activity android:name=".site.page.GatewayDetailActivity" />
+        <activity android:name=".site.page.CardListActivity" />
+        <activity android:name=".site.page.CardDetailActivity" />
+        <activity android:name=".site.page.CreateCardActivity" />
+        <activity android:name=".site.page.CreateFingerprintActivity" />
+        <activity android:name=".site.page.FingerprintListActivity" />
+        <activity android:name=".site.page.FingerprintDetailActivity" />
     </application>
 
 </manifest>

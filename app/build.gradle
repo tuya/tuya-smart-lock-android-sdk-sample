@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+
 }
 
 def debugStore = [
@@ -48,6 +49,9 @@ android {
         pickFirst 'lib/*/libyuv.so'
         pickFirst 'lib/*/libopenh264.so'
         pickFirst 'lib/*/liblog.so'
+        packagingOptions {
+            exclude 'META-INF/thing/mcHeader_thingsmart-device_thingMC.meta'
+        }
     }
 
     buildTypes {
@@ -73,7 +77,6 @@ configurations.all {
     exclude group: "com.thingclips.smart", module: 'thingsmart-modularCampAnno'
 }
 
-
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.3.2'
@@ -89,8 +92,9 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.1.67.android'
     implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.14.9'
 
-    implementation "com.thingclips.smart:thingsmartlocksdk:1.3.1-lock"
     implementation project(':base_res')
-    implementation 'com.facebook.soloader:soloader:0.10.4'
 
+    implementation 'com.thingclips.smart:thingsmartlocksdk:1.4.0-lock'
+
+    implementation 'com.facebook.soloader:soloader:0.10.4'
 }

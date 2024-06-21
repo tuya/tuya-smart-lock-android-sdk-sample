@@ -41,9 +41,18 @@
         android:id="@+id/btnLockList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/btnGatewayList"
         android:padding="16dp"
-        android:layout_above="@+id/btnDeleteSite"
         android:text="@string/lock_list"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnGatewayList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnDeleteSite"
+        android:padding="16dp"
+        android:text="@string/gateway_list"
         android:textColor="@android:color/white" />
 
     <Button

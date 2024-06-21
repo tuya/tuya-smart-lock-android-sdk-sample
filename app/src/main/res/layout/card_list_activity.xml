@@ -4,32 +4,32 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/clearButton"
+        android:layout_above="@id/createButton"
         android:divider="@null"
         android:dividerHeight="0dp" />
+
+    <Button
+        android:id="@+id/createButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loadMore"
+        android:text="@string/create_card" />
 
     <Button
         android:id="@+id/loadMore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/clearButton"
         android:text="@string/load_more" />
-
-    <Button
-        android:id="@+id/createKeyButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/loadMore"
-        android:text="@string/create_password" />
 
     <Button
         android:id="@+id/clearButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/createKeyButton"
-        android:text="@string/clear_password" />
+        android:layout_alignParentBottom="true"
+        android:text="@string/clear_card" />
 
 </RelativeLayout>

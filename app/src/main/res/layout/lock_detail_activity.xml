@@ -1,228 +1,363 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonUnlock"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/copy_id"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="@string/unlock"
-        android:textColor="@color/white"
-        android:textSize="12dp" />
-
-    <Button
-        android:id="@+id/copy_id"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="@string/copy_id"
-        android:textColor="@color/white"
-        android:textSize="12dp" />
-
-    <TextView
-        android:id="@+id/tvDeviceId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/device_id"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvDeviceIdValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvDeviceId"
-        android:layout_marginBottom="8dp"
-        android:text="--"
-        android:textSize="18sp" />
-
-    <View
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_below="@id/tvDeviceIdValue"
-        android:background="@color/gray" />
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textDeviceNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvDeviceIdValue"
-        android:layout_marginBottom="8dp"
-        android:text="@string/lock_name"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textDeviceNameValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textDeviceNameLabel"
-        android:layout_marginBottom="8dp"
-        android:text="--"
-        android:textSize="18sp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_below="@id/textDeviceNameValue"
-        android:background="@color/gray" />
-
-    <TextView
-        android:id="@+id/textOnlineStatusLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textDeviceNameValue"
-        android:layout_marginBottom="8dp"
-        android:text="@string/online_status"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textOnlineStatusValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textOnlineStatusLabel"
-        android:layout_marginBottom="8dp"
-        android:text="--"
-        android:textSize="18sp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_below="@id/textOnlineStatusValue"
-        android:background="@color/gray" />
-
-    <TextView
-        android:id="@+id/textBatteryLevelLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textOnlineStatusValue"
-        android:layout_marginBottom="8dp"
-        android:text="@string/battery_level"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textBatteryLevelValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textBatteryLevelLabel"
-        android:layout_marginBottom="8dp"
-        android:text="--"
-        android:textSize="18sp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_below="@id/textBatteryLevelValue"
-        android:background="@color/gray" />
-
-
-    <TextView
-        android:id="@+id/textUserTypeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textBatteryLevelValue"
-        android:layout_marginBottom="8dp"
-        android:text="@string/user_type"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textUserTypeValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textUserTypeLabel"
-        android:layout_marginBottom="8dp"
-        android:text="--"
-        android:textSize="18sp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_below="@id/textUserTypeValue"
-        android:background="@color/gray" />
-
-
-    <TextView
-        android:id="@+id/textEffectiveTimeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textUserTypeValue"
-        android:layout_marginBottom="16dp"
-        android:text="@string/effective_time"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textEffectiveTimeValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textEffectiveTimeLabel"
-        android:layout_marginBottom="16dp"
-        android:text="--"
-        android:textSize="18sp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_below="@id/textEffectiveTimeValue"
-        android:background="@color/gray" />
-
-
-    <LinearLayout
-        android:id="@+id/functionContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textEffectiveTimeValue"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical">
 
         <Button
-            android:id="@+id/buttonElectronicKey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/ekey"
+            android:id="@+id/buttonUnlock"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/copy_id"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="@string/unlock"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/copy_id"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="@string/copy_id"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/lock"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/buttonUnlock"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="@string/lock"
+            android:textColor="@color/white"
+            android:textSize="12dp"
             android:visibility="gone"
             tools:visibility="visible" />
 
         <Button
-            android:id="@+id/buttonPassword"
-            android:layout_width="match_parent"
+            android:id="@+id/force_delete"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/lock"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="@string/force_remove"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            tools:visibility="visible" />
+        <Button
+            android:id="@+id/locked_status"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/force_delete"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/lock"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvDeviceId"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="@string/password"
+            android:text="@string/device_id"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDeviceIdValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDeviceId"
+            android:layout_marginBottom="8dp"
+            android:text="--"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/tvDeviceIdValue"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/textDeviceNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDeviceIdValue"
+            android:layout_marginBottom="8dp"
+            android:text="@string/lock_name"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textDeviceNameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textDeviceNameLabel"
+            android:layout_marginBottom="8dp"
+            android:text="--"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/textDeviceNameValue"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/textOnlineStatusLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textDeviceNameValue"
+            android:layout_marginBottom="8dp"
+            android:text="@string/online_status"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textOnlineStatusValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textOnlineStatusLabel"
+            android:layout_marginBottom="8dp"
+            android:text="--"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/textOnlineStatusValue"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/textBatteryLevelLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textOnlineStatusValue"
+            android:layout_marginBottom="8dp"
+            android:paddingVertical="10dp"
+            android:text="@string/battery_level"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textBatteryLevelValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textBatteryLevelLabel"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="8dp"
+            android:paddingVertical="10dp"
+            android:text="--"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/textBatteryLevelValue"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/textUserTypeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textBatteryLevelValue"
+            android:layout_marginBottom="8dp"
+            android:paddingVertical="10dp"
+            android:text="@string/user_type"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textUserTypeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textUserTypeLabel"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="8dp"
+            android:paddingVertical="10dp"
+            android:text="--"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/textUserTypeValue"
+            android:background="@color/gray" />
+
+
+        <TextView
+            android:id="@+id/textEffectiveTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textUserTypeValue"
+            android:layout_marginBottom="16dp"
+            android:paddingVertical="10dp"
+            android:text="@string/effective_time"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textEffectiveTimeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textEffectiveTimeLabel"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="16dp"
+            android:paddingVertical="10dp"
+            android:text="--"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/textEffectiveTimeValue"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/tvAutoClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textEffectiveTimeValue"
+            android:layout_marginVertical="16dp"
+            android:text="@string/auto_close"
+            android:textSize="18sp"
+            android:textStyle="bold"
             android:visibility="gone"
             tools:visibility="visible" />
 
         <Button
-            android:id="@+id/buttonLog"
-            android:layout_width="match_parent"
+            android:id="@+id/btnAutoCloseOn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/operation_log"
+            android:layout_below="@id/textEffectiveTimeValue"
+            android:layout_alignParentRight="true"
+            android:layout_marginVertical="16dp"
+            android:text="ON"
+            android:textSize="18sp"
             android:visibility="gone"
             tools:visibility="visible" />
 
-<!--
         <Button
-            android:id="@+id/buttonSettings"
+            android:id="@+id/btnAutoCloseOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textEffectiveTimeValue"
+            android:layout_marginVertical="16dp"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/btnAutoCloseOn"
+            android:text="OFF"
+            android:textSize="18sp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/btnAutoCloseOn"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/tvReverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line"
+            android:layout_marginBottom="16dp"
+            android:paddingVertical="10dp"
+            android:text="@string/reverse_status"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvReverseStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvReverse"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="16dp"
+            android:paddingVertical="10dp"
+            android:text="--"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/tvReverseStatus"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:id="@+id/functionContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/setting" />
--->
+            android:layout_below="@id/tvReverseStatus"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/buttonElectronicKey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/ekey"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
-</RelativeLayout>
+            <Button
+                android:id="@+id/buttonPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/password"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <Button
+                android:id="@+id/buttonFingerprint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/fingerprint"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <Button
+                android:id="@+id/buttonCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/card"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <Button
+                android:id="@+id/buttonLog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/operation_log"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

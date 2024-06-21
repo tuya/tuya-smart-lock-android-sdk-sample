@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!-- item_device.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/deviceNameTextView"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="16dp"
+    android:textSize="18sp"
+    android:textStyle="bold">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/unbind"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="123455" />
+
+    <TextView
+        android:id="@+id/unbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/unbind"
+        android:textColor="@color/red" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray" />
+</RelativeLayout>

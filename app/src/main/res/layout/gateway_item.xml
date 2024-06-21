@@ -29,29 +29,29 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/connect"
+            android:id="@+id/update_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@string/connect" />
+            android:text="@string/update_name" />
 
         <Button
-            android:id="@+id/unlockButton"
+            android:id="@+id/search_sub_device"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@string/unlock" />
+            android:text="@string/search_sub_device" />
 
         <Button
             android:id="@+id/remove"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="1"

@@ -101,4 +101,78 @@
     <string name="load_more">加载更多</string>
     <string name="searching_and_config_warning">请确保蓝牙开关处于开启状态，且位置权限和附近的设备权限（Android12以上）处于打开状态</string>
     <string name="update">更新</string>
+    <string name="add_ble_lock">添加蓝牙门锁</string>
+    <string name="add_ble_gateway">添加蓝牙网关</string>
+    <string name="add_zigbee_gateway">添加Zigbee网关</string>
+    <string name="add_zigbee_lock">添加Zigbee门锁</string>
+    <string name="add_device">添加设备</string>
+    <string name="ez_config_title">EZ模式配网</string>
+
+    <string name="device_config_ez_title">EZ 模式</string>
+    <string name="device_config_ez_description">EZ 配网是指 App 发送包含 Wi-Fi 名
+        和 Wi-Fi 密码的 UDP 广播包或者组播包，
+        设备的 Wi-Fi 芯片可以接收到该 UDP 包，通过特定的 UDP 组织形式就可以解密出 Wi-Fi
+        名和 Wi-Fi 密码，接着设备配置 Wi-Fi，然后设备可上网连接云，
+        将设备信息注册到云端的过程</string>
+    <string name="device_config_ap_title">AP 模式</string>
+    <string name="device_config_ap_description">AP模式，也称为热点模式。 手机连接智能设备的热点，双方建立了Socket连接，
+        通过约定的端口交换数据。\n让设备处于配对模式，然后将手机的Wi-Fi切换到设备的热点。
+        输入您希望设备连接的Wi-Fi的SSID和密码，然后点击“搜索”。</string>
+    <string name="device_config_ble_title">蓝牙 BLE 模式</string>
+
+    <string name="device_config_wifi_ssid">WIFI 名称</string>
+    <string name="device_config_wifi_password">WIFI 密码</string>
+    <string name="device_config_search">搜索</string>
+    <string name="device_config_stop">停止</string>
+    <string name="device_config_sp_mode_hint">AP模式，也称为热点模式。 手机连接智能设备的热点，双方建立了Socket连接，通过约定的端口交换数据。\n让设备处于配对模式，然后将手机的Wi-Fi切换到设备的热点。 输入您希望设备连接的Wi-Fi的SSID和密码，然后点击“搜索”。</string>
+    <string name="ble_activator_hint">BLE 设备类型分为：Single 和 SIGMesh 双模。Single 设备通过手机蓝牙直接连接。双模设备通过蓝牙使其连上 Wi-Fi 并且在云端激活</string>
+    <string name="ble_activator_title">BLE 配网</string>
+    <string name="btn_activator_ble_device">开始配网</string>
+    <string name="config_ble_gateway">蓝牙网关配网</string>
+    <string name="searching_and_config_warning_zigbee_wired_gateway">请确保手机当前连接的WIFI与网关所连接的WIFI处于同一局域网内</string>
+    <string name="gateway_list">网关列表</string>
+    <string name="update_name">修改名称</string>
+    <string name="search_sub_device">搜索子设备</string>
+    <string name="input_name">请输入名称</string>
+    <string name="confirm">确定</string>
+    <string name="start_config_device">开始配网</string>
+    <string name="searching_sub_device">正在搜索子设备...</string>
+    <string name="gateway_name">网关名称</string>
+    <string name="gateway_binded_device_list">已绑定设备列表</string>
+    <string name="unbind">解绑</string>
+    <string name="gateway_unbind_device_list">待绑定设备</string>
+    <string name="bind">绑定</string>
+    <string name="fingerprint">指纹</string>
+    <string name="card">卡片</string>
+    <string name="card_list">卡片列表</string>
+    <string name="create_card">创建卡片</string>
+    <string name="card_detail">卡片详情</string>
+    <string name="rename">修改名称</string>
+    <string name="card_type">卡片类型</string>
+    <string name="create_fingerprint">创建指纹</string>
+    <string name="fingerprint_list">指纹列表</string>
+    <string name="fingerprint_detail">指纹详情</string>
+    <string name="creatting">创建中</string>
+    <string name="deletting">删除中</string>
+    <string name="create_fail">创建失败</string>
+    <string name="abnormal">状态异常</string>
+    <string name="delete_fail">删除失败</string>
+    <string name="retry_create">重新下发</string>
+    <string name="force_remove">强制移除</string>
+    <string name="auto_close">自动落锁</string>
+    <string name="lock">关锁</string>
+    <string name="auto_lock_on">打开自动落锁</string>
+    <string name="auto_lock_off">关闭自动落锁</string>
+    <string name="clear_password">清空密码</string>
+    <string name="clear_fingerprint">清空指纹</string>
+    <string name="add_zigbee_device_tip">请在网关列表添加Zigbee子设备</string>
+    <string name="reverse_status">反锁状态</string>
+    <string name="reverse_locked">已反锁</string>
+    <string name="reverse_not_locked">未反锁</string>
+    <string name="activator_success">配网成功：</string>
+    <string name="clear_card">清空卡片</string>
+    <string name="input_password">请输入自定义密码</string>
+    <string name="cancel">取消</string>
+    <string name="cancel_success">取消成功</string>
+    <string name="cancel_failed">取消失敗</string>
 </resources>

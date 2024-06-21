@@ -79,7 +79,7 @@ public class AlarmRecordsListActivity extends AppCompatActivity {
         recordsParams.groupId = siteId;
         recordsParams.pageSize = 20;
         recordsParams.sortValues = sortValues;
-        ThingOSLock.newLockInstance(deviceId).getAlarmRecords(recordsParams, new IThingResultCallback<AlarmRecordsResp>() {
+        ThingOSLock.newLockInstance(siteId, deviceId).getAlarmRecords(recordsParams, new IThingResultCallback<AlarmRecordsResp>() {
             @Override
             public void onSuccess(AlarmRecordsResp result) {
                 loading = false;

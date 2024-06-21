@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/keyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/editTextName"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:hint="@string/user_name" />
+
+        <EditText
+            android:id="@+id/et_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/editTextName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toRightOf="@+id/editTextName"
+            android:hint="@string/username_input_hint"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@+id/et_user_name"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:hint="@string/card_type" />
+
+        <TextView
+            android:id="@+id/et_type"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/tv_type"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toRightOf="@+id/tv_type"
+            android:gravity="center_vertical"
+            android:textSize="16dp"
+            tools:text="@string/permanent" />
+
+        <LinearLayout
+            android:id="@+id/startDateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_type"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/effective_time" />
+
+            <TextView
+                android:id="@+id/etEffectiveTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="yyyy-MM-dd HH:mm:ss" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/endDateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/startDateLayout"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/invalid_time" />
+
+            <TextView
+                android:id="@+id/etInvalidTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="yyyy-MM-dd HH:mm:ss" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/remove"
+            android:text="@string/rename" />
+
+        <Button
+            android:id="@+id/remove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/remove" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
